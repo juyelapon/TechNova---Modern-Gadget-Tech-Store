@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-gray-950 text-gray-100 font-sans;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 10% -10%, rgba(34, 211, 238, 0.10), transparent),
+      radial-gradient(ellipse 60% 50% at 100% 0%, rgba(168, 85, 247, 0.10), transparent);
+    background-attachment: fixed;
+  }
+  ::selection {
+    @apply bg-cyan-400/30 text-white;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-950;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-gray-800;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-700;
+  }
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/10 bg-white/[0.04] backdrop-blur-xl;
+  }
+  .glass-strong {
+    @apply border border-white/10 bg-gray-900/70 backdrop-blur-2xl;
+  }
+  .text-gradient {
+    @apply bg-gradient-to-r from-cyan-400 via-sky-400 to-purple-500 bg-clip-text text-transparent;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 px-6 py-3 font-semibold text-white shadow-glow-cyan transition-all duration-300 hover:scale-[1.02] hover:shadow-glow-purple active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:scale-100;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3 font-semibold text-gray-100 backdrop-blur transition-all duration-300 hover:border-cyan-400/60 hover:bg-white/10 hover:text-cyan-300;
+  }
+  .input-field {
+    @apply w-full rounded-xl border border-white/10 bg-gray-900/60 px-4 py-3 text-sm text-gray-100 placeholder-gray-500 outline-none transition focus:border-cyan-400/70 focus:ring-2 focus:ring-cyan-400/20;
+  }
+  .container-x {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  .section-title {
+    @apply font-display text-3xl font-bold tracking-tight sm:text-4xl;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Dual range slider */
+.range-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: none;
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  height: 6px;
+  outline: none;
+}
+.range-thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  pointer-events: auto;
+  height: 18px;
+  width: 18px;
+  border-radius: 9999px;
+  background: #0b1120;
+  border: 3px solid #22d3ee;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+  cursor: pointer;
+}
+.range-thumb::-moz-range-thumb {
+  pointer-events: auto;
+  height: 14px;
+  width: 14px;
+  border-radius: 9999px;
+  background: #0b1120;
+  border: 3px solid #22d3ee;
+  box-shadow: 0 0 12px rgba(34, 211, 238, 0.6);
+  cursor: pointer;
+}
+
+/* Credit card flip */
+.perspective {
+  perspective: 1200px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
